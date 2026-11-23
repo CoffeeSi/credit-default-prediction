@@ -1,0 +1,197 @@
+{
+  "created_utc": "2026-11-23T12:25:28.704019+00:00",
+  "selection_source": "validation only",
+  "selected_model": "boosting",
+  "models": {
+    "dummy": {
+      "validation_ap": 0.22128415907576093,
+      "threshold": 0.5,
+      "params": {
+        "strategy": "most_frequent"
+      },
+      "candidate_id": 0,
+      "model_path": "artifacts/classical/dummy.joblib",
+      "validation_metrics_working": {
+        "ap": 0.22128415907576093,
+        "roc_auc": 0.5,
+        "threshold": 0.5,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tn": 3505,
+        "fp": 0,
+        "fn": 996,
+        "tp": 0,
+        "positive_rate": 0.22128415907576093
+      },
+      "validation_metrics_0_5": {
+        "ap": 0.22128415907576093,
+        "roc_auc": 0.5,
+        "threshold": 0.5,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tn": 3505,
+        "fp": 0,
+        "fn": 996,
+        "tp": 0,
+        "positive_rate": 0.22128415907576093
+      },
+      "seed": 42,
+      "source_sha256": "f6c131c25f5ea6716c1439d986550832a5ba1ed218fbbfc3013bb92bb78dcee2"
+    },
+    "logistic": {
+      "validation_ap": 0.5483519275043849,
+      "threshold": 0.25012922286987305,
+      "params": {
+        "C": 0.1
+      },
+      "candidate_id": 1,
+      "model_path": "artifacts/classical/logistic.joblib",
+      "validation_metrics_working": {
+        "ap": 0.5483519275043849,
+        "roc_auc": 0.7780080378575643,
+        "threshold": 0.25012922286987305,
+        "precision": 0.5204170286707211,
+        "recall": 0.6014056224899599,
+        "f1": 0.5579878900791803,
+        "tn": 2953,
+        "fp": 552,
+        "fn": 397,
+        "tp": 599,
+        "positive_rate": 0.22128415907576093
+      },
+      "validation_metrics_0_5": {
+        "ap": 0.5483519275043849,
+        "roc_auc": 0.7780080378575643,
+        "threshold": 0.5,
+        "precision": 0.6756756756756757,
+        "recall": 0.3514056224899598,
+        "f1": 0.4623513870541612,
+        "tn": 3337,
+        "fp": 168,
+        "fn": 646,
+        "tp": 350,
+        "positive_rate": 0.22128415907576093
+      },
+      "seed": 42,
+      "source_sha256": "f6c131c25f5ea6716c1439d986550832a5ba1ed218fbbfc3013bb92bb78dcee2"
+    },
+    "boosting": {
+      "validation_ap": 0.5554985037484603,
+      "threshold": 0.33905345420122857,
+      "params": {
+        "learning_rate": 0.1,
+        "max_leaf_nodes": 15,
+        "l2_regularization": 1.0,
+        "max_iter": 200
+      },
+      "candidate_id": 5,
+      "model_path": "artifacts/classical/boosting.joblib",
+      "validation_metrics_working": {
+        "ap": 0.5554985037484603,
+        "roc_auc": 0.7876335584850099,
+        "threshold": 0.33905345420122857,
+        "precision": 0.5878453038674033,
+        "recall": 0.5341365461847389,
+        "f1": 0.5597054182009469,
+        "tn": 3132,
+        "fp": 373,
+        "fn": 464,
+        "tp": 532,
+        "positive_rate": 0.22128415907576093
+      },
+      "validation_metrics_0_5": {
+        "ap": 0.5554985037484603,
+        "roc_auc": 0.7876335584850099,
+        "threshold": 0.5,
+        "precision": 0.6660746003552398,
+        "recall": 0.37650602409638556,
+        "f1": 0.4810776138550353,
+        "tn": 3317,
+        "fp": 188,
+        "fn": 621,
+        "tp": 375,
+        "positive_rate": 0.22128415907576093
+      },
+      "seed": 42,
+      "source_sha256": "f6c131c25f5ea6716c1439d986550832a5ba1ed218fbbfc3013bb92bb78dcee2"
+    },
+    "mlp": {
+      "candidate": 2,
+      "validation_ap": 0.5522539910220712,
+      "threshold": 0.31010901927948,
+      "params": {
+        "hidden_dims": [
+          64,
+          32
+        ],
+        "learning_rate": 0.0005,
+        "dropout": 0.2,
+        "weight_decay": 0.001
+      },
+      "best_epoch": 17,
+      "epochs_run": 25,
+      "model_path": "artifacts/neural/candidate_2.pt",
+      "parameter_count": 7937,
+      "duration_seconds": 11.547714200001792,
+      "metrics_0.5": {
+        "ap": 0.5522539910220712,
+        "roc_auc": 0.7858519670694191,
+        "threshold": 0.5,
+        "precision": 0.6636197440585009,
+        "recall": 0.3644578313253012,
+        "f1": 0.47051198963058977,
+        "tn": 3321,
+        "fp": 184,
+        "fn": 633,
+        "tp": 363,
+        "positive_rate": 0.2212841659784317
+      },
+      "metrics_working": {
+        "ap": 0.5522539910220712,
+        "roc_auc": 0.7858519670694191,
+        "threshold": 0.31010901927948,
+        "precision": 0.5778947368421052,
+        "recall": 0.5512048192771084,
+        "f1": 0.5642343268242549,
+        "tn": 3104,
+        "fp": 401,
+        "fn": 447,
+        "tp": 549,
+        "positive_rate": 0.2212841659784317
+      },
+      "preprocessor_path": "artifacts/neural/preprocessor.joblib",
+      "input_dim": 90,
+      "batch_size": 256,
+      "max_epochs": 60,
+      "patience": 8,
+      "seed": 42,
+      "device": "cuda",
+      "gpu_device_name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "threads": 2,
+      "loss": "BCEWithLogitsLoss (unweighted)",
+      "optimizer": "AdamW",
+      "selection": "Maximum validation AP; first candidate on exact tie",
+      "threshold_rule": "maximize validation F1 over unique predicted probabilities; ties choose highest threshold",
+      "source_sha256": "f6c131c25f5ea6716c1439d986550832a5ba1ed218fbbfc3013bb92bb78dcee2",
+      "config_sha256": "acbcfd6596365529ca0ef4641e974a9be1b14c3103fda46d404a4d5bf72b53e8"
+    }
+  },
+  "sha256": {
+    "config.json": "acbcfd6596365529ca0ef4641e974a9be1b14c3103fda46d404a4d5bf72b53e8",
+    "artifacts/splits/indices.npz": "b7d183d055696198e58ab27119c9c7713c13fb851f8140be3e04505295ba970b",
+    "data/credit_default.csv": "f6c131c25f5ea6716c1439d986550832a5ba1ed218fbbfc3013bb92bb78dcee2",
+    "artifacts/classical/boosting.joblib": "995d27c05195a41808dbcc64111e7bed9c48df800b25d1f592daad80ce1a0ca2",
+    "artifacts/classical/dummy.joblib": "3b13823f3b00456f956127a6a9250772c51902d110561b9ec259ac0a52248b85",
+    "artifacts/classical/logistic.joblib": "2584beb21a6772c55718522594a4a279a3e4cd895b6f1374dd306e16c25415c9",
+    "artifacts/classical/selected.json": "f8e4e636dea2943ec93bf1f0398bc97bf4bd66b1c698f57a5287981f93ad16e2",
+    "artifacts/neural/candidate_0.pt": "775b71085ffbcf764f9888e10cd54814f18d9548f5231dbd8ceeb0e5ec133f3d",
+    "artifacts/neural/candidate_1.pt": "05a2e50ea975aba0ba04eb8e413d1cdf2d8968c5c5b12d1709507bb622ce282a",
+    "artifacts/neural/candidate_2.pt": "5b0caf6ad26510aa781c2fabedad7f22906c0f02bb760507e6cb0d385e3d52a7",
+    "artifacts/neural/candidate_3.pt": "b75f733619bfb0e5d6ef7e1988521f4e45ce34fdd6e3dfd056efbc0813e799ba",
+    "artifacts/neural/preprocessor.joblib": "047367063919aca9c48c1190f775cb0d475017efbe4dcc378daabc95e1d0b05e",
+    "artifacts/neural/search.json": "c4a5aea86085d3a51926a7da88d96ba068319bcbd896b39906df6a4927d956b9",
+    "artifacts/neural/selected.json": "60669e6d4347a966658b5bd322d11344ae53326943b6b3cda7aa413d63704b8c"
+  }
+}

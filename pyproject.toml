@@ -1,0 +1,29 @@
+[project]
+name = "credit-default-ml"
+version = "1.0.0"
+description = "Predicting Next-Month Credit Card Default Using Payment History"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "torch==2.6.0+cu124",
+    "numpy>=2.0.0",
+    "pandas>=2.2.0",
+    "scikit-learn>=1.5.0",
+    "scipy>=1.13.0",
+    "matplotlib>=3.9.0",
+    "seaborn>=0.13.0",
+    "joblib>=1.4.0",
+    "threadpoolctl>=3.5.0",
+    "xlrd>=2.0.1",
+    "pypdf>=5.0.0",
+    "python-pptx>=1.0.0",
+    "pillow>=10.0.0",
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu124"
+url = "https://download.pytorch.org/whl/cu124"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu124" }

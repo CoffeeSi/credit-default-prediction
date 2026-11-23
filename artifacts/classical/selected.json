@@ -1,0 +1,116 @@
+{
+  "dummy": {
+    "validation_ap": 0.22128415907576093,
+    "threshold": 0.5,
+    "params": {
+      "strategy": "most_frequent"
+    },
+    "candidate_id": 0,
+    "model_path": "artifacts/classical/dummy.joblib",
+    "validation_metrics_working": {
+      "ap": 0.22128415907576093,
+      "roc_auc": 0.5,
+      "threshold": 0.5,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tn": 3505,
+      "fp": 0,
+      "fn": 996,
+      "tp": 0,
+      "positive_rate": 0.22128415907576093
+    },
+    "validation_metrics_0_5": {
+      "ap": 0.22128415907576093,
+      "roc_auc": 0.5,
+      "threshold": 0.5,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tn": 3505,
+      "fp": 0,
+      "fn": 996,
+      "tp": 0,
+      "positive_rate": 0.22128415907576093
+    },
+    "seed": 42,
+    "source_sha256": "f6c131c25f5ea6716c1439d986550832a5ba1ed218fbbfc3013bb92bb78dcee2"
+  },
+  "logistic": {
+    "validation_ap": 0.5483519275043849,
+    "threshold": 0.25012922286987305,
+    "params": {
+      "C": 0.1
+    },
+    "candidate_id": 1,
+    "model_path": "artifacts/classical/logistic.joblib",
+    "validation_metrics_working": {
+      "ap": 0.5483519275043849,
+      "roc_auc": 0.7780080378575643,
+      "threshold": 0.25012922286987305,
+      "precision": 0.5204170286707211,
+      "recall": 0.6014056224899599,
+      "f1": 0.5579878900791803,
+      "tn": 2953,
+      "fp": 552,
+      "fn": 397,
+      "tp": 599,
+      "positive_rate": 0.22128415907576093
+    },
+    "validation_metrics_0_5": {
+      "ap": 0.5483519275043849,
+      "roc_auc": 0.7780080378575643,
+      "threshold": 0.5,
+      "precision": 0.6756756756756757,
+      "recall": 0.3514056224899598,
+      "f1": 0.4623513870541612,
+      "tn": 3337,
+      "fp": 168,
+      "fn": 646,
+      "tp": 350,
+      "positive_rate": 0.22128415907576093
+    },
+    "seed": 42,
+    "source_sha256": "f6c131c25f5ea6716c1439d986550832a5ba1ed218fbbfc3013bb92bb78dcee2"
+  },
+  "boosting": {
+    "validation_ap": 0.5554985037484603,
+    "threshold": 0.33905345420122857,
+    "params": {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 15,
+      "l2_regularization": 1.0,
+      "max_iter": 200
+    },
+    "candidate_id": 5,
+    "model_path": "artifacts/classical/boosting.joblib",
+    "validation_metrics_working": {
+      "ap": 0.5554985037484603,
+      "roc_auc": 0.7876335584850099,
+      "threshold": 0.33905345420122857,
+      "precision": 0.5878453038674033,
+      "recall": 0.5341365461847389,
+      "f1": 0.5597054182009469,
+      "tn": 3132,
+      "fp": 373,
+      "fn": 464,
+      "tp": 532,
+      "positive_rate": 0.22128415907576093
+    },
+    "validation_metrics_0_5": {
+      "ap": 0.5554985037484603,
+      "roc_auc": 0.7876335584850099,
+      "threshold": 0.5,
+      "precision": 0.6660746003552398,
+      "recall": 0.37650602409638556,
+      "f1": 0.4810776138550353,
+      "tn": 3317,
+      "fp": 188,
+      "fn": 621,
+      "tp": 375,
+      "positive_rate": 0.22128415907576093
+    },
+    "seed": 42,
+    "source_sha256": "f6c131c25f5ea6716c1439d986550832a5ba1ed218fbbfc3013bb92bb78dcee2"
+  }
+}

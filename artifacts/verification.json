@@ -1,0 +1,21 @@
+{
+  "checked_utc": "2026-11-23T13:22:26.198951+00:00",
+  "python": "3.12.15",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "device": "cuda",
+  "seed": 42,
+  "frozen_hashes_verified": true,
+  "all_four_model_families_reported": true,
+  "selected_model_reloaded_and_test_metrics_recomputed": true,
+  "selected_model": "boosting",
+  "test_rows": 4500,
+  "pptx_reopened": true,
+  "slides": 13,
+  "speaker_notes_present_all_slides": true,
+  "all_working_AP_values_found_in_editable_presentation": true,
+  "powerpoint_rendered_slide_count": 0,
+  "limitations": [
+    "Single historical client split; no external temporal/bank validation.",
+    "Participant contributions verified and documented across all defense materials."
+  ]
+}

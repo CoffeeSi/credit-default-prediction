@@ -1,0 +1,110 @@
+PAGE 1
+MLA Final Project Instructions 
+Project overview 
+Choose a topic of interest and develop a machine learning project that follows the complete ML workflow: 
+problem formulation, data collection and preparation, exploratory analysis, model development, evaluation, 
+and communication of results. 
+You will submit a reproducible implementation/code and a slide deck, then present and defend your project. 
+Your work should demonstrate both practical implementation skills and an understanding of the algorithms 
+and decisions behind your solution. 
+At least one model must be a neural network implemented and trained or fine-tuned using 
+TensorFlow/Keras or PyTorch. 
+Simply importing the library or using a pretrained model only for inference does not satisfy this requirement. 
+You can do a project in a group of 3 students max 
+1 Choose and define your problem 
+You may choose any topic, such as healthcare, education, finance, sports, environmental science, computer 
+vision, natural language processing, or recommendation systems. 
+Your proposal should identify: 
+ The problem you want to solve and why it matters. 
+ The machine learning task, such as classification, regression, clustering, or forecasting. 
+ The dataset you plan to use and its source. 
+ Your intended inputs and outputs. 
+ How you will measure success. 
+Choose a scope that is feasible with the available time, data, and computing resources. Projects involving 
+unsupervised learning or other nonstandard tasks must still include a meaningful neural network component 
+and an appropriate evaluation strategy. 
+2 Obtain and understand the data 
+Use a public dataset or combine suitable sources. Avoid the use of synthetic data 
+Document the dataset’s origin, size, features, target variable where applicable, and any usage restrictions. 
+Conduct exploratory data analysis to examine distributions, missing values, outliers, class balance, and 
+relationships relevant to your problem. 
+Explain how your observations influence your modeling decisions. Include relevant visualizations rather than 
+plots without interpretation. 
+Discuss potential limitations, including sampling bias, privacy concerns, and whether the data represent the 
+intended use case. 
+  
+
+PAGE 2
+3 Prepare the data and design the evaluation 
+Develop a preprocessing pipeline appropriate to your task. This may include: 
+ Handling missing values, duplicates, and outliers. 
+ Encoding categorical variables and scaling numerical features. 
+ Preparing text, images, or time-series data. 
+ Engineering or selecting features. 
+ Addressing class imbalance, where relevant. 
+Use an appropriate training, validation, and test strategy. Explain your choices. For time-dependent or 
+grouped observations, use splits that respect those structures. 
+Prevent data leakage: fit learned preprocessing steps using training data only. Use validation data or cross-
+validation for model selection, and reserve the test set for the final evaluation. 
+4 Develop and compare models 
+Your project must include: 
+1. A simple baseline, such as majority-class prediction, mean prediction, or another task-appropriate 
+reference. 
+2. At least one non-neural machine learning model, such as logistic regression, a decision tree, random 
+forest, support vector machine, or gradient boosting. 
+3. At least one neural network built with TensorFlow/Keras or PyTorch. 
+For the neural network, explain the architecture, activation functions, loss function, optimizer, batch size, 
+number of epochs, and any regularization techniques.  
+Tune relevant hyperparameters using a documented strategy. Compare models using consistent evaluation 
+procedures and describe any differences in their inputs or preprocessing. 
+5 Evaluate and interpret the results 
+Select metrics that fit your task and explain why they are appropriate. Do not rely on accuracy alone when it 
+hides important aspects of performance. 
+Your analysis must include: 
+ A clear comparison of the baseline and trained models. 
+ Neural network training and validation curves. 
+ Error analysis or inspection of representative successes and failures. 
+ Discussion of overfitting, underfitting, and generalization. 
+ Interpretation of model behavior using suitable methods. 
+ Limitations and realistic next steps. 
+The neural network does not need to outperform the other models. A well-supported explanation of the results 
+is more important than achieving the highest score. 
+  
+
+PAGE 3
+6 Make the workflow reproducible 
+Submit code that another person can use to reproduce your workflow. Include: 
+ A README with setup and execution instructions. 
+ Required packages and versions. 
+ Dataset access instructions. 
+ Random seeds where applicable. 
+ Clearly organized preprocessing, training, and evaluation code. 
+Demonstrate how the selected model generates a prediction or other relevant output for a new example. A 
+deployed application is optional. 
+Deliverables 
+ Code: Organized scripts or notebooks, environment requirements, and a README. 
+ Presentation and defense: A concise explanation of your project, supported by results and a demonstration 
+of the working pipeline. 
+Cite datasets, external code, pretrained models, and other sources. Disclose any AI assistance and ensure you 
+can explain all submitted work. 
+Project defense 
+During the defense no phones in hand are allowed, be prepared to: 
+ Explain your complete ML workflow. 
+ Justify your preprocessing, model choices, and evaluation metrics. 
+ Describe how your neural network learns. 
+ Explain how you prevented data leakage and evaluated generalization. 
+ Interpret your results, including unexpected findings and unsuccessful experiments. 
+ Walk through key parts of your code and demonstrate your solution. 
+For group projects, every member must explain their contribution and demonstrate an understanding of the 
+overall project. 
+Grading rubric 
+Component Weight 
+Problem formulation and motivation 10% 
+Data understanding and exploratory analysis 15% 
+Preprocessing and evaluation design 15% 
+Model implementation, neural network, and tuning 30% 
+Results, interpretation, and critical analysis 20% 
+Presentation and defense 10% 
+Total 100% 
+Grades will reflect the quality of your methodology, reasoning, implementation, and communication, not 
+model performance alone. 

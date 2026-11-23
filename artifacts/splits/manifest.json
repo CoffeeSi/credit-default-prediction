@@ -1,0 +1,41 @@
+{
+  "seed": 42,
+  "source_sha256": "f6c131c25f5ea6716c1439d986550832a5ba1ed218fbbfc3013bb92bb78dcee2",
+  "method": "StratifiedGroupKFold(n_splits=20, shuffle=True, random_state=42); folds 0:14 train, 14:17 validation, 17:20 test",
+  "group_definition": "Exact equality of all 23 original predictors, excluding ID and target",
+  "primary_selection_metric": "validation average_precision_score",
+  "threshold_rule": "maximize validation F1 over distinct validation prediction scores; break exact ties with highest threshold; predict positive for p >= threshold",
+  "test_policy": "No test input to fitting, early stopping, configuration selection, model selection, or threshold selection. Final report only after decisions are frozen.",
+  "audit": {
+    "seed": 42,
+    "n_rows": 30000,
+    "n_feature_groups": 29944,
+    "splits": {
+      "train": {
+        "n": 20999,
+        "positive_count": 4645,
+        "positive_rate": 0.22120100957188438,
+        "fraction": 0.6999666666666666
+      },
+      "validation": {
+        "n": 4501,
+        "positive_count": 996,
+        "positive_rate": 0.22128415907576093,
+        "fraction": 0.15003333333333332
+      },
+      "test": {
+        "n": 4500,
+        "positive_count": 995,
+        "positive_rate": 0.22111111111111112,
+        "fraction": 0.15
+      }
+    },
+    "row_overlap": 0,
+    "feature_group_overlap": 0,
+    "id_in_features": false,
+    "target_in_features": false,
+    "groups_with_conflicting_targets": 21,
+    "duplicate_feature_rows_beyond_first": 56,
+    "duplicate_rows_without_id_beyond_first": 35
+  }
+}

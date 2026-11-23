@@ -1,0 +1,22 @@
+{
+  "scope": "train only",
+  "n_train": 20999,
+  "positive_count": 4645,
+  "positive_fraction": 0.22120100957188438,
+  "zero_payment_fraction": {
+    "PAY_AMT1": 0.17372255821705795,
+    "PAY_AMT2": 0.17753226344111625,
+    "PAY_AMT3": 0.19739035192152007,
+    "PAY_AMT4": 0.21196247440354302,
+    "PAY_AMT5": 0.22243916376970332,
+    "PAY_AMT6": 0.2375351207200343
+  },
+  "negative_bill_counts": {
+    "BILL_AMT1": 409,
+    "BILL_AMT2": 455,
+    "BILL_AMT3": 460,
+    "BILL_AMT4": 477,
+    "BILL_AMT5": 474,
+    "BILL_AMT6": 497
+  }
+}

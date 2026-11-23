@@ -1,0 +1,12 @@
+{
+  "evaluated_utc": "2026-11-23T12:31:07.117635+00:00",
+  "selected_model": "boosting",
+  "selection_source": "frozen validation AP",
+  "test_size": 4500,
+  "prevalence": 0.22111111111111112,
+  "frozen_utc": "2026-11-23T12:25:28.704019+00:00",
+  "threshold_rule": "maximize validation F1 over unique predicted probabilities; ties choose highest threshold",
+  "no_test_tuning": true,
+  "permutation_repeats": 5,
+  "seed": 42
+}

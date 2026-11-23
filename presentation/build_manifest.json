@@ -1,0 +1,9 @@
+{
+  "slides": 13,
+  "selected_model": "boosting",
+  "bootstrap_ci_included": true,
+  "paired_bootstrap_included": true,
+  "error_clients_included": true,
+  "team_members_included": true,
+  "pptx_path": "presentation/credit_default_final.pptx"
+}

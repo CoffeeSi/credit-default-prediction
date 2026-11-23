@@ -1,0 +1,24 @@
+{
+  "seed": 42,
+  "device": "cuda",
+  "threads": 2,
+  "primary_metric": "average_precision",
+  "selection": "highest validation average precision; no test-based selection",
+  "threshold_rule": "maximize validation F1 over unique predicted probabilities; ties choose highest threshold",
+  "split": "20 StratifiedGroupKFold folds; train 14, validation 3, test 3; group identical predictors",
+  "logistic_C": [0.1, 1.0, 10.0],
+  "boosting_candidates": [
+    {"learning_rate": 0.05, "max_leaf_nodes": 15, "l2_regularization": 1.0, "max_iter": 200},
+    {"learning_rate": 0.1, "max_leaf_nodes": 15, "l2_regularization": 1.0, "max_iter": 200},
+    {"learning_rate": 0.05, "max_leaf_nodes": 31, "l2_regularization": 5.0, "max_iter": 200}
+  ],
+  "mlp_candidates": [
+    {"hidden_dims": [64, 32], "learning_rate": 0.001, "dropout": 0.1, "weight_decay": 0.0001},
+    {"hidden_dims": [128, 64], "learning_rate": 0.0005, "dropout": 0.2, "weight_decay": 0.001},
+    {"hidden_dims": [64, 32], "learning_rate": 0.0005, "dropout": 0.2, "weight_decay": 0.001},
+    {"hidden_dims": [128, 64], "learning_rate": 0.001, "dropout": 0.3, "weight_decay": 0.005}
+  ],
+  "mlp_batch_size": 256,
+  "mlp_max_epochs": 60,
+  "mlp_patience": 8
+}

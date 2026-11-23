@@ -1,0 +1,5 @@
+candidate,validation_ap,threshold,best_epoch,epochs_run,model_path,parameter_count,duration_seconds,hidden_dims,learning_rate,dropout,weight_decay
+0,0.5492016658513056,0.3067011535167694,5,13,artifacts/neural/candidate_0.pt,7937,7.039590599997609,"[64, 32]",0.001,0.1,0.0001
+1,0.5484663305490507,0.28145289421081543,5,13,artifacts/neural/candidate_1.pt,19969,7.363469000003533,"[128, 64]",0.0005,0.2,0.001
+2,0.5522539910220712,0.31010901927948,17,25,artifacts/neural/candidate_2.pt,7937,11.547714200001792,"[64, 32]",0.0005,0.2,0.001
+3,0.5504233580040868,0.305694043636322,6,14,artifacts/neural/candidate_3.pt,19969,7.944281399999454,"[128, 64]",0.001,0.3,0.005

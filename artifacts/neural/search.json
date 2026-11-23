@@ -1,0 +1,182 @@
+[
+  {
+    "candidate": 0,
+    "validation_ap": 0.5492016658513056,
+    "threshold": 0.3067011535167694,
+    "params": {
+      "hidden_dims": [
+        64,
+        32
+      ],
+      "learning_rate": 0.001,
+      "dropout": 0.1,
+      "weight_decay": 0.0001
+    },
+    "best_epoch": 5,
+    "epochs_run": 13,
+    "model_path": "artifacts/neural/candidate_0.pt",
+    "parameter_count": 7937,
+    "duration_seconds": 7.039590599997609,
+    "metrics_0.5": {
+      "ap": 0.5492016658513056,
+      "roc_auc": 0.7845216815908428,
+      "threshold": 0.5,
+      "precision": 0.6631578947368421,
+      "recall": 0.3795180722891566,
+      "f1": 0.4827586206896552,
+      "tn": 3313,
+      "fp": 192,
+      "fn": 618,
+      "tp": 378,
+      "positive_rate": 0.2212841659784317
+    },
+    "metrics_working": {
+      "ap": 0.5492016658513056,
+      "roc_auc": 0.7845216815908428,
+      "threshold": 0.3067011535167694,
+      "precision": 0.5629405840886204,
+      "recall": 0.5612449799196787,
+      "f1": 0.5620915032679739,
+      "tn": 3071,
+      "fp": 434,
+      "fn": 437,
+      "tp": 559,
+      "positive_rate": 0.2212841659784317
+    }
+  },
+  {
+    "candidate": 1,
+    "validation_ap": 0.5484663305490507,
+    "threshold": 0.28145289421081543,
+    "params": {
+      "hidden_dims": [
+        128,
+        64
+      ],
+      "learning_rate": 0.0005,
+      "dropout": 0.2,
+      "weight_decay": 0.001
+    },
+    "best_epoch": 5,
+    "epochs_run": 13,
+    "model_path": "artifacts/neural/candidate_1.pt",
+    "parameter_count": 19969,
+    "duration_seconds": 7.363469000003533,
+    "metrics_0.5": {
+      "ap": 0.5484663305490507,
+      "roc_auc": 0.7834913118952271,
+      "threshold": 0.5,
+      "precision": 0.671304347826087,
+      "recall": 0.38755020080321284,
+      "f1": 0.49140674729471673,
+      "tn": 3316,
+      "fp": 189,
+      "fn": 610,
+      "tp": 386,
+      "positive_rate": 0.2212841659784317
+    },
+    "metrics_working": {
+      "ap": 0.5484663305490507,
+      "roc_auc": 0.7834913118952271,
+      "threshold": 0.28145289421081543,
+      "precision": 0.55,
+      "recall": 0.5742971887550201,
+      "f1": 0.5618860510805501,
+      "tn": 3037,
+      "fp": 468,
+      "fn": 424,
+      "tp": 572,
+      "positive_rate": 0.2212841659784317
+    }
+  },
+  {
+    "candidate": 2,
+    "validation_ap": 0.5522539910220712,
+    "threshold": 0.31010901927948,
+    "params": {
+      "hidden_dims": [
+        64,
+        32
+      ],
+      "learning_rate": 0.0005,
+      "dropout": 0.2,
+      "weight_decay": 0.001
+    },
+    "best_epoch": 17,
+    "epochs_run": 25,
+    "model_path": "artifacts/neural/candidate_2.pt",
+    "parameter_count": 7937,
+    "duration_seconds": 11.547714200001792,
+    "metrics_0.5": {
+      "ap": 0.5522539910220712,
+      "roc_auc": 0.7858519670694191,
+      "threshold": 0.5,
+      "precision": 0.6636197440585009,
+      "recall": 0.3644578313253012,
+      "f1": 0.47051198963058977,
+      "tn": 3321,
+      "fp": 184,
+      "fn": 633,
+      "tp": 363,
+      "positive_rate": 0.2212841659784317
+    },
+    "metrics_working": {
+      "ap": 0.5522539910220712,
+      "roc_auc": 0.7858519670694191,
+      "threshold": 0.31010901927948,
+      "precision": 0.5778947368421052,
+      "recall": 0.5512048192771084,
+      "f1": 0.5642343268242549,
+      "tn": 3104,
+      "fp": 401,
+      "fn": 447,
+      "tp": 549,
+      "positive_rate": 0.2212841659784317
+    }
+  },
+  {
+    "candidate": 3,
+    "validation_ap": 0.5504233580040868,
+    "threshold": 0.305694043636322,
+    "params": {
+      "hidden_dims": [
+        128,
+        64
+      ],
+      "learning_rate": 0.001,
+      "dropout": 0.3,
+      "weight_decay": 0.005
+    },
+    "best_epoch": 6,
+    "epochs_run": 14,
+    "model_path": "artifacts/neural/candidate_3.pt",
+    "parameter_count": 19969,
+    "duration_seconds": 7.944281399999454,
+    "metrics_0.5": {
+      "ap": 0.5504233580040868,
+      "roc_auc": 0.7835216758617923,
+      "threshold": 0.5,
+      "precision": 0.6630824372759857,
+      "recall": 0.3714859437751004,
+      "f1": 0.47619047619047616,
+      "tn": 3317,
+      "fp": 188,
+      "fn": 626,
+      "tp": 370,
+      "positive_rate": 0.2212841659784317
+    },
+    "metrics_working": {
+      "ap": 0.5504233580040868,
+      "roc_auc": 0.7835216758617923,
+      "threshold": 0.305694043636322,
+      "precision": 0.5563173359451518,
+      "recall": 0.570281124497992,
+      "f1": 0.5632126921170054,
+      "tn": 3052,
+      "fp": 453,
+      "fn": 428,
+      "tp": 568,
+      "positive_rate": 0.2212841659784317
+    }
+  }
+]
