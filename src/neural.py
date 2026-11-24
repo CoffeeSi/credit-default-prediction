@@ -1,4 +1,4 @@
-"""CPU MLP: train/validation selection only, with reloadable PyTorch weights.
+"""PyTorch MLP (CUDA when available, else CPU): train/validation selection only, with reloadable weights.
 
 Defense entry point: ``train_candidate`` contains forward, backward, and update.
 """
@@ -238,7 +238,7 @@ def write_notes(selected, history):
 
 The network uses {selected['input_dim']} transformed inputs, hidden layers {h1} and {h2}, ReLU after each hidden layer, dropout {selected['params']['dropout']}, and one output logit. Sigmoid is applied only for inference. Trainable parameters: {selected['parameter_count']:,}.
 
-Training uses {device_desc}, seed {selected['seed']}, {selected['threads']} Torch threads, unweighted BCEWithLogitsLoss, and AdamW. Learning rate {selected['params']['learning_rate']}; weight decay {selected['params']['weight_decay']}; batch size {selected['batch_size']}. The budget is {selected['max_epochs']} epochs per candidate and early stopping after {selected['patience']} epochs without improved validation AP. There are two predeclared candidates in config.json. The selected candidate ran {selected['epochs_run']} epochs and restored epoch {selected['best_epoch']}. No final retraining on train+validation is done, so the validation threshold remains associated with the exact saved predictor.
+Training uses {device_desc}, seed {selected['seed']}, {selected['threads']} Torch threads, unweighted BCEWithLogitsLoss, and AdamW. Learning rate {selected['params']['learning_rate']}; weight decay {selected['params']['weight_decay']}; batch size {selected['batch_size']}. The budget is {selected['max_epochs']} epochs per candidate and early stopping after {selected['patience']} epochs without improved validation AP. There are {len(config()['mlp_candidates'])} predeclared candidates in config.json. The selected candidate ran {selected['epochs_run']} epochs and restored epoch {selected['best_epoch']}. No final retraining on train+validation is done, so the validation threshold remains associated with the exact saved predictor.
 
 Validation AP: {selected['validation_ap']:.6f}. Working threshold: {selected['threshold']:.6f}, chosen by maximum validation F1 with the highest-threshold tie break. These decisions never use test outcomes.
 
@@ -248,13 +248,13 @@ Inputs use the common preprocessing pipeline: signed log1p on monetary columns, 
 
 At the selected epoch, training AP is {best['train_ap']:.6f} and validation AP is {best['validation_ap']:.6f}; training loss is {best['train_loss']:.6f} and validation loss is {best['validation_loss']:.6f}. At the last epoch, training AP is {last['train_ap']:.6f} and validation AP is {last['validation_ap']:.6f}, with losses {last['train_loss']:.6f} and {last['validation_loss']:.6f}. A growing training/validation gap with no validation AP improvement is evidence of overfitting to this training sample; patience restores the earlier checkpoint. Small epoch-to-epoch AP changes are also affected by finite validation data. Both curves are measured in eval mode with dropout disabled, making their comparison consistent. This single seed and small search do not establish a universal ranking between architectures.
 
-If the MLP trails boosting, compare the saved validation and test AP values. Trees can capture threshold effects and feature interactions efficiently on modest tabular datasets; this two-candidate MLP search may not find the best neural configuration. That is an explanation to investigate, not proof from one split.
+If the MLP trails boosting, compare the saved validation and test AP values. Trees can capture threshold effects and feature interactions efficiently on modest tabular datasets; this small MLP search may not find the best neural configuration. That is an explanation to investigate, not proof from one split.
 
 ## Backpropagation and artifact loading
 
 The forward pass computes logits and binary cross-entropy. loss.backward() applies the chain rule through the layers to compute a gradient for each parameter. optimizer.step() uses AdamW to update those parameters and apply weight decay. zero_grad() clears old gradients before each minibatch. Validation runs without gradients and cannot update weights.
 
-Code: src/neural.py::train_candidate. Run `python -m src.neural train`. Files include both candidate checkpoints, all epoch histories, selected.json, train-fitted preprocessor.joblib, and learning_curves.png. `load_predictor().predict_proba(raw_frame)[:, 1]` loads the exact selected checkpoint and returns positive-class scores. Saved checkpoint reload is checked against in-memory validation predictions with exact equality during training. Predictions are model probability estimates, not proven calibrated individual risks.
+Code: src/neural.py::train_candidate. Run `python -m src.neural train`. Files include every candidate checkpoint, all epoch histories, selected.json, train-fitted preprocessor.joblib, and learning_curves.png. `load_predictor().predict_proba(raw_frame)[:, 1]` loads the exact selected checkpoint and returns positive-class scores. Saved checkpoint reload is checked against in-memory validation predictions (absolute tolerance 1e-5) during training. Predictions are model probability estimates, not proven calibrated individual risks.
 """
     (ROOT / "docs").mkdir(exist_ok=True)
     (ROOT / "docs/neural.md").write_text(text, encoding="utf-8")

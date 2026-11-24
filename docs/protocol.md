@@ -1,7 +1,7 @@
 # Frozen experimental protocol
 
 This protocol is established before model selection and final test evaluation.
-The only random seed is **42**. CPU execution is the default.
+The only random seed is **42**. `config.json` sets `device: cuda`; the MLP falls back to CPU when CUDA is unavailable. Classical models always run on CPU.
 
 ## Prediction time and information boundary
 

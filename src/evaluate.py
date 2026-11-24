@@ -33,6 +33,31 @@ def compute_bootstrap_ap_ci(y_true, scores, n_bootstraps=1000, seed=42, alpha=0.
     return lower, upper
 
 
+def compute_paired_bootstrap(y_true, predictions, reference="boosting", others=("logistic", "mlp"),
+                             n_bootstraps=1000, seed=42, alpha=0.05):
+    """Paired bootstrap of AP differences (reference - other) on the SAME resampled clients.
+
+    Each replicate draws one set of test indices and scores every model on it, so the
+    correlation between models' errors is preserved. Used for description only.
+    """
+    rng = np.random.default_rng(seed)
+    n = len(y_true)
+    diffs = {other: [] for other in others}
+    for _ in range(n_bootstraps):
+        idx = rng.choice(n, size=n, replace=True)
+        if len(np.unique(y_true[idx])) < 2:
+            continue
+        ref_ap = average_precision_score(y_true[idx], predictions[reference][idx])
+        for other in others:
+            diffs[other].append(float(ref_ap - average_precision_score(y_true[idx], predictions[other][idx])))
+    short = {"boosting": "gb", "logistic": "lr", "mlp": "mlp"}
+    return {f"diff_{short[reference]}_{short[other]}": {
+                "mean": float(np.mean(values)),
+                "ci_lower": float(np.percentile(values, 100 * (alpha / 2))),
+                "ci_upper": float(np.percentile(values, 100 * (1 - alpha / 2)))}
+            for other, values in diffs.items()}
+
+
 def load_model(name, metadata):
     if name == "mlp":
         from src.neural import load_predictor
@@ -180,7 +205,7 @@ def write_report(frozen, metrics, examples, importance, size):
               "", "## Neural learning and model comparison", "",
               f"The selected MLP restores epoch {neural['best_epoch']} of {neural['epochs_run']} epochs run. At that checkpoint train AP = {best.train_ap:.6f}, validation AP = {best.validation_ap:.6f}, train BCE = {best.train_loss:.6f}, validation BCE = {best.validation_loss:.6f}. At the last epoch the corresponding values are {last.train_ap:.6f}, {last.validation_ap:.6f}, {last.train_loss:.6f}, and {last.validation_loss:.6f}.",
               "Training and validation curves are measured with dropout disabled. Improving train scores alongside stalled/worsening validation scores indicate overfitting; restoring the earlier validation-AP checkpoint limits it. Loss and AP can peak at different epochs because BCE assesses probabilistic fit while AP assesses ranking. Validation sampling variation also affects small fluctuations. A persistent low train and validation score would suggest underfitting; the saved curves should be read rather than assuming it from architecture alone.",
-              f"The MLP test AP is {model_ap['mlp']:.6f}, compared with boosting {model_ap['boosting']:.6f} and logistic regression {model_ap['logistic']:.6f}. " + ("In this run the MLP trails boosting. Trees can efficiently capture threshold effects and interactions in tabular data, while this compact MLP had only two configurations and a limited epoch budget. This is a plausible explanation, not proof that neural networks are unsuitable." if model_ap['mlp'] < model_ap['boosting'] else "In this run the MLP matches or exceeds boosting on test AP. This does not establish general neural superiority; the model used in the demo still follows the frozen validation decision."),
+              f"The MLP test AP is {model_ap['mlp']:.6f}, compared with boosting {model_ap['boosting']:.6f} and logistic regression {model_ap['logistic']:.6f}. " + ("In this run the MLP trails boosting. Trees can efficiently capture threshold effects and interactions in tabular data, while this compact MLP search covered only four configurations with a single seed. This is a plausible explanation, not proof that neural networks are unsuitable." if model_ap['mlp'] < model_ap['boosting'] else "In this run the MLP matches or exceeds boosting on test AP. This does not establish general neural superiority; the model used in the demo still follows the frozen validation decision."),
               "The linear logistic baseline has a restricted additive decision function on transformed features, so it cannot freely model interactions. The majority baseline deliberately ignores all information and illustrates why accuracy alone would be misleading with class imbalance. A single split and small search do not establish a statistically significant universal ranking.",
               "", "## Limitations and realistic next steps", "",
               "The data describe historical Taiwanese credit-card clients in 2005. Evaluation is on held-out clients from this source population, not a later month, new country or new bank. The label is the workbook's next-month-default outcome; the UCI description does not provide a detailed operational delinquency definition. Features must be available by the end of September for this prediction boundary.",
@@ -217,6 +242,7 @@ def evaluate():
         metrics.to_csv(OUT / "test_metrics.csv", index=False)
         write_json(OUT / "test_metrics.json", metrics_rows)
         pd.DataFrame({"row_index": x.index, "actual": y, **predictions}).to_csv(OUT / "test_predictions.csv", index=False)
+        write_json(OUT / "paired_bootstrap.json", compute_paired_bootstrap(y, predictions, seed=cfg["seed"]))
         plot_precision_recall(y, predictions)
         plot_confusions(metrics)
         winner = frozen["selected_model"]

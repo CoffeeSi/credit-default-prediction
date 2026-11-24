@@ -1,6 +1,8 @@
 {
-  "slides": 13,
+  "slides": 15,
   "selected_model": "boosting",
+  "style": "minimal",
+  "native_charts": 3,
   "bootstrap_ci_included": true,
   "paired_bootstrap_included": true,
   "error_clients_included": true,

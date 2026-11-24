@@ -1,5 +1,5 @@
 {
-  "evaluated_utc": "2026-11-23T12:31:07.117635+00:00",
+  "evaluated_utc": "2026-11-23T15:45:30.106423+00:00",
   "selected_model": "boosting",
   "selection_source": "frozen validation AP",
   "test_size": 4500,

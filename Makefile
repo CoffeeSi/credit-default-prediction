@@ -20,7 +20,7 @@ help:
 	@echo "  make test           - Run automated unit tests"
 	@echo "  make evaluate       - Evaluate on held-out test set & compute bootstrap CIs"
 	@echo "  make demo           - Run interactive inference demo on test client #0"
-	@echo "  make presentation   - Build 11-slide PowerPoint deck and speaker notes"
+	@echo "  make presentation   - Build 15-slide minimalist PowerPoint deck and speaker notes"
 	@echo "  make verify         - Run comprehensive project integrity verifier"
 	@echo "  make clean          - Remove temporary Python caches and bytecode"
 	@echo "======================================================================"

@@ -6,10 +6,12 @@ An executed, GPU-accelerated (NVIDIA RTX 4050 / CUDA) educational binary classif
 
 The reference environment is Windows, Python 3.12, GPU (NVIDIA RTX 4050 / CUDA), seed 42. Exact installed versions are pinned in `pyproject.toml`, `uv.lock`, and `requirements.txt`.
 
+**Reproducibility note.** All random seeds are fixed at 42. Classical models and the data split are bit-for-bit reproducible. The MLP trains on CUDA when available. GPU kernels are not forced to be deterministic, so retraining can shift MLP metrics slightly, typically in the third or fourth decimal. To reproduce the reported numbers exactly, use the supplied weights with `run.py --skip-training`. If CUDA is unavailable, the MLP falls back to CPU and runs in deterministic mode.
+
 ### Быстрый запуск через `uv` (рекомендуется):
 
 ```powershell
-cd D:\AITU\ml\final
+cd <путь-к-папке-проекта>
 uv run python run.py
 ```
 
@@ -33,7 +35,7 @@ make verify         # Полная валидация целостности п�
 ### Запуск через стандартный Python (.venv):
 
 ```powershell
-cd D:\AITU\ml\final
+cd <путь-к-папке-проекта>
 .\.venv\Scripts\python.exe run.py
 ```
 
@@ -100,7 +102,7 @@ The index is a position in the frozen test partition. The command prints estimat
 - `presentation/`: editable English PowerPoint and rendered preview when available.
 - `docs/speaker_notes.md`, `docs/defense.md`: speaking script and defense Q&A.
 - `docs/rubric_checklist.md`: course PDF requirements mapped to evidence.
-- `docs/data.md`, `docs/protocol.md`, `docs/classical.md`, `docs/neural.md`, `docs/evaluation.md`: reasoning and actual results.
+- `docs/data.md` (dataset origin, schema, EDA findings and decisions), `docs/protocol.md`, `docs/classical.md`, `docs/neural.md`, `docs/evaluation.md`: reasoning and actual results.
 - `docs/sources.md`: references, academic AI disclosure, and verified student team members/contributions (Yevgeniy Averyanov, Madiyar Amanzhol, Aldiyar Amangeldi).
 - `artifacts/`: fixed split, search results, saved weights/pipelines, frozen selection, metrics, plots and verification logs.
 
